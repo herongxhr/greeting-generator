@@ -1,6 +1,6 @@
 {
   "name": "@herongxhr/sayhi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A framework-agnostic greeting generator based on time, date, and weekday with multi-language support",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
