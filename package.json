@@ -1,0 +1,33 @@
+{
+  "name": "greeting-generator",
+  "version": "1.0.0",
+  "description": "A framework-agnostic greeting generator based on time, date, and weekday with multi-language support",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && rollup -c",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "greeting",
+    "time-based",
+    "multi-language",
+    "typescript"
+  ],
+  "author": "Your Name <your-email@example.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "rollup": "^3.29.4",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "typescript": "^5.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/herongxhr/greeting-generator.git"
+  }
+}
