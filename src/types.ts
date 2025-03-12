@@ -1,36 +1,30 @@
-// 时间段定义
 export interface TimeSlot {
   start: number;
   end: number;
-  default: string;
+  default?: string;
 }
 
-// 星期问候定义
-export interface DayOfWeek {
-  default: string;
-}
+export type TimeSlots = Record<string, TimeSlot>;
 
-// 特殊日期问候定义
-export interface SpecialDate {
-  default: string;
-}
-
-// 语言翻译
-export interface Language {
-  [key: string]: string;
-}
-
-// 配置选项
 export interface GreetingConfig {
   locale: string;
-  timeSlots: Record<string, TimeSlot>;
-  dayOfWeek: Record<number, DayOfWeek>;
-  specialDates: Record<string, SpecialDate>;
-  languages: Record<string, Language>;
+  timeSlots: TimeSlots;
 }
 
-// 构造函数选项
+export interface TimeRange {
+  startHour: number;
+  endHour: number;
+  greeting: string;
+}
+
+export interface LanguageData {
+  dates?: Record<string, string>; // 如 "01-01": "新年快乐"
+  weekdays?: Record<number, string>; // 如 6: "好好休息"
+  timeslots: Record<string, string>; // 如 "morning": "上午好"
+}
+
 export interface GreetingOptions {
   locale?: string;
-  updateInterval?: number;
+  timeSlots?: TimeSlots;
+  languages?: Record<string, LanguageData>;
 }
