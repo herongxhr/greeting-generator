@@ -20,7 +20,7 @@ export interface TimeRange {
 export interface LanguageData {
   dates?: Record<string, string>; // 如 "01-01": "新年快乐"
   weekdays?: Record<number, string>; // 如 6: "好好休息"
-  timeslots: Record<string, string>; // 如 "morning": "上午好"
+  timeslots?: Record<string, string>; // 如 "morning": "上午好"
 }
 
 export interface GreetingOptions {

@@ -79,7 +79,7 @@ export class GreetingGenerator {
 
     const datePart = this.language.dates?.[date] || "";
     const dayPart = this.language.weekdays?.[day] || "";
-    const timePart = this.language.timeslots[timeSlot];
+    const timePart = this.language.timeslots?.[timeSlot];
 
     return [datePart, dayPart, timePart].filter(Boolean).join(" ");
   }
