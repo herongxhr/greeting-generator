@@ -17,7 +17,7 @@ export class GreetingGenerator {
 
     const defaultLanguages = getLanguages();
     if (options?.languages) {
-      this.languages = Object.fromEntries(
+      const newLanguages = Object.fromEntries(
         Object.entries(options.languages).map(([locale, language]) => {
           const defaultLanguage = defaultLanguages[locale];
           return [
@@ -39,6 +39,7 @@ export class GreetingGenerator {
           ];
         })
       );
+      this.languages = { ...defaultLanguages, ...newLanguages };
     } else {
       this.languages = defaultLanguages;
     }

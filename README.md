@@ -35,12 +35,10 @@ import { GreetingGenerator } from 'greeting-generator';
 import { type Composer } from 'vue-i18n'
 import i18n from '@/locales'
 
-const greeting = computed(() => {
-  const locale = (i18n.global as Composer).locale.value
-  return new GreetingGenerator({
-    locale,
-    languages: {
-      'ja-JP': {
+const greeter = new GreetingGenerator({
+  locale: 'zh-CN',
+  languages: {
+       'ja-JP': {
         timeslots: {
           morning: 'おはよう',
           afternoon: 'こんにちは',
@@ -54,19 +52,18 @@ const greeting = computed(() => {
           0: '日曜日',
         },
       },
-      // partial coverage
-      'zh-CN': {
-        weekdays: { 0: '', 1: '', 2: '', 3: '', 4: '', 5: '', 6: '' },
-      },
+    'zh-CN': {
+      weekdays: { 0: '', 1: '', 2: '', 3: '', 4: '', 5: '', 6: '' },
     },
-    timeSlots: {
-      morning: { start: 5, end: 11 }, // Custom morning range
-      afternoon: { start: 11, end: 17 },
-      evening: { start: 17, end: 21 },
-      night: { start: 21, end: 5 },
-    },
-  }).generateGreeting()
+  },
 })
+
+const greeting = computed(() => {
+  const locale = (i18n.global as Composer).locale.value
+  greeter.setLocale(locale) // 切换语言
+  return greeter.generateGreeting()
+})
+
 ```
 
 ### Features
